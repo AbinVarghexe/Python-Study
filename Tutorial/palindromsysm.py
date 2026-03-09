@@ -1,25 +1,31 @@
-#write a program to check the entered STRING is symmertical or palindrom
+def is_palindrome(text):
+    """Check whether a string reads the same forward and backward."""
+    return text == text[::-1]
 
-Value = input("Enter the Value: ")
 
-if Value == Value[::-1]:
-    print("Thisis a the palindrom")
-else:
-    print("This is a not a palindrom")
+def is_symmetrical(text):
+    """Check whether both halves of the string are the same."""
+    mid = len(text) // 2
 
-mid = len(Value) // 2
+    if len(text) % 2 == 0:
+        return text[:mid] == text[mid:]
 
-if len(Value) % 2 == 0:
-    if Value[:mid] == Value[mid:]:
-        print("This is symmetrical")
+    return text[:mid] == text[mid + 1:]
+
+
+def main():
+    value = input("Enter the string: ")
+
+    if is_palindrome(value):
+        print("The string is a palindrome.")
     else:
-        print("This is not symmetrical")
-else:
-    if Value[:mid] == Value[mid+1:]:
-        print("This is symmetrical")
+        print("The string is not a palindrome.")
+
+    if is_symmetrical(value):
+        print("The string is symmetrical.")
     else:
-        print("This is not symmetrical")
+        print("The string is not symmetrical.")
 
 
-"""Hello
-ioioiuifkjdhfkldsflknf"""
+if __name__ == "__main__":
+    main()
